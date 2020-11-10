@@ -32,12 +32,14 @@ int main()
 {
 	char M[129],k[129],C[129]; //dichiarazione delle stringhe: messaggio in chiaro, chiave di criptazione, messaggio criptato
 	int n; //dichiarazione della variabile utilizzata per il menù
+	char c;
 	printf("Inserisci il messaggio: "); //richiesta di inserimento del messaggio in chiaro
 	fgets(M, 129, stdin); //input del messaggio in chiaro
-	do{
-		printf("Inserisci: \n1 per inserire la chiave di cifratura manualmente \n2 per generare casualmente la chiave\n"); //richiesta di inserimento per il menù
 
+	printf("Scegli se: \nInserire 1 per inserire la chiave di cifratura manualmente \nInserire 2 per generare casualmente la chiave\n"); //richiesta di inserimento per il menù
+	do{
 		scanf ("%d", &n); //input per la scelta di come inserire la chiave
+		while((c= getchar()) != '\n' && c != EOF); //pulizia del buffer di input
 	}while(n!=1&&n!=2); // do-while per fa rinserire il valore talvolta sia diverso da 1 o 2
 	if(n==1){
 		inputk(M,k); //chiamata alla funzione per inserire la chiave manualmente
