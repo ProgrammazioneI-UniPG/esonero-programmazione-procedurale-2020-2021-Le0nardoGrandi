@@ -23,10 +23,13 @@ void criptapazione(char M[],char *k, char *C){ //dichiarazione della funzione pe
 	printf("Messaggio criptato: \n%s\n", C); //output del messaggio criptato
 }
 void decriptapazione(char *M,char *k, char *C){ //dichiarazione della funzione per la decriptazione del messaggio
-	for(int i=0; i<(strlen(M)-1);i++){ //ciclo che per far scorrere la stringa, carattere per carattere
-		M[i]=C[i]^k[i]; //criptazione del messaggio
+	char MD[129]; //dichiarazione stringa per il messaggio decriptato
+	int i=0;
+	for(; i<(strlen(M)-1);i++){ //ciclo che per far scorrere la stringa, carattere per carattere
+		MD[i]=C[i]^k[i]; //criptazione del messaggio
 	}
-	printf("Messaggio decriptato: \n%s\n", M); //output del messaggio decriptato
+	MD[i]='\0';
+	printf("Messaggio decriptato: \n%s\n", MD); //output del messaggio decriptato
 }
 int main()
 {
